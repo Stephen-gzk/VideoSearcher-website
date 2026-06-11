@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="VideoSearcher project page">
+  <title>VideoSearcher</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="VideoSearcher home">
+      <img src="assets/tencent-youtu.jpg" alt="Tencent Youtu Lab">
+    </a>
+    <nav class="nav" aria-label="Page sections">
+      <a href="#abstract">Abstract</a>
+      <a href="#method">Method</a>
+      <a href="#results">Results</a>
+      <a href="#cases">Cases</a>
+      <a href="#citation">Citation</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <p class="venue">Technical Report</p>
+      <h1>VideoSearcher: Empowering Video Deep Research with Multi-Tool Agentic Reasoning via Reinforcement Learning</h1>
+
+      <div class="authors">
+        <p>
+          Zhenkun Gao<sup>*1,2</sup>, Yicheng Bao<sup>*1</sup>, Jinlong Peng<sup>*&dagger;&#9993;2</sup>,
+          Xueheng Li<sup>*&#9993;3</sup>, Suyuan Huang<sup>*4,2</sup>
+        </p>
+        <p>
+          Bangwei Liu<sup>1</sup>, Kunquan Li<sup>5</sup>, Zhenye Gan<sup>2</sup>, Tao Hu<sup>3</sup>,
+          Chengjun Xie<sup>3</sup>, Xuanhua He<sup>&#9993;6</sup>
+        </p>
+        <p>
+          Zhizhong Zhang<sup>1</sup>, Xin Tan<sup>1</sup>, Chengjie Wang<sup>2</sup>, Yuan Xie<sup>&#9993;1</sup>
+        </p>
+      </div>
+
+      <div class="notes">
+        <p><sup>*</sup> Equal Contribution, <sup>&dagger;</sup> Project Lead, &#9993; Corresponding Author</p>
+        <p>
+          <sup>1</sup>East China Normal University,
+          <sup>2</sup>Tencent Youtu Lab,
+          <sup>3</sup>University of Science and Technology of China,
+          <sup>4</sup>Wuhan University,
+          <sup>5</sup>Xiamen University,
+          <sup>6</sup>The Hong Kong University of Science and Technology
+        </p>
+      </div>
+
+      <div class="actions">
+        <a class="button primary" href="assets/VideoSearcher.pdf">Paper</a>
+        <a class="button" href="#citation">BibTeX</a>
+        <a class="button disabled" href="#" aria-disabled="true">Code Coming Soon</a>
+        <a class="button disabled" href="#" aria-disabled="true">Dataset Coming Soon</a>
+      </div>
+    </section>
+
+    <section class="media-section">
+      <figure class="teaser">
+        <img src="assets/teaser.png" alt="VideoSearcher overview">
+      </figure>
+      <p class="lead">
+        VideoSearcher studies Video Deep Research, where an agent must localize visual evidence in videos,
+        invoke external search tools, and synthesize answers through a single coherent reasoning trajectory.
+      </p>
+    </section>
+
+    <section id="abstract" class="section narrow">
+      <h2>Abstract</h2>
+      <p>
+        Video understanding is moving beyond closed-context perception toward open-world evidence exploration,
+        a paradigm formalized as Video Deep Research (VDR). Existing multimodal search agents primarily target
+        static images, and current VDR benchmarks rely on text-centric retrieval that discards crucial visual
+        information. We propose VideoSearcher, a closed-loop agentic framework that empowers Vision-Language
+        Models with multi-tool reasoning for VDR. VideoSearcher unifies temporal localization, spatial focusing,
+        and multimodal search within a single reasoning trajectory, enabling agents to progressively ground visual
+        clues, retrieve relevant evidence, and synthesize answers.
+      </p>
+      <p>
+        To optimize knowledge-intensive reasoning trajectories, we introduce Bi-branch Sequence Policy Optimization
+        (BiSPO), which decouples tool-invocation optimization from answer-accuracy optimization. We further construct
+        VideoSearch-QA, a benchmark for open-world video information grounding and multimodal search-based reasoning.
+        Experiments show that VideoSearcher substantially improves over prior open-source agentic baselines across
+        search-oriented and multimodal understanding benchmarks.
+      </p>
+    </section>
+
+    <section id="method" class="section">
+      <h2>Method</h2>
+      <figure class="figure wide">
+        <img src="assets/pipeline.png" alt="VideoSearcher training and reasoning pipeline">
+        <figcaption>VideoSearcher combines video grounding, spatial inspection, image search, and web search in a closed-loop reasoning process.</figcaption>
+      </figure>
+      <div class="feature-grid">
+        <article>
+          <h3>Video Grounding</h3>
+          <p>The agent narrows long videos to relevant segments and locks key frames before searching for external evidence.</p>
+        </article>
+        <article>
+          <h3>Multi-Tool Search</h3>
+          <p>Image search and web search connect localized visual clues with open-world knowledge.</p>
+        </article>
+        <article>
+          <h3>BiSPO Training</h3>
+          <p>Answer correctness and tool-use behavior are optimized through separated reward branches.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="results" class="section">
+      <h2>Experiment Results</h2>
+      <figure class="figure">
+        <img src="assets/figure1.png" alt="Search-oriented benchmark results">
+        <figcaption>Search-oriented benchmark comparison under direct-answer and agentic workflows.</figcaption>
+      </figure>
+      <div class="figure-row">
+        <figure class="figure compact">
+          <img src="assets/figure2.png" alt="General video understanding results">
+          <figcaption>General video understanding benchmark results.</figcaption>
+        </figure>
+        <figure class="figure compact">
+          <img src="assets/tool-usage.png" alt="Tool invocation statistics">
+          <figcaption>Tool usage patterns across video and image search-oriented benchmarks.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="cases" class="section">
+      <h2>Case Study</h2>
+      <p class="section-intro">
+        Qualitative examples illustrate how VideoSearcher builds a trajectory from video localization to visual
+        entity search, evidence retrieval, and final answer synthesis.
+      </p>
+      <div class="case-grid">
+        <figure>
+          <img src="assets/case1.png" alt="Successful case 1">
+          <figcaption>Successful case 1: identifying a humanoid robot through visual grounding and external search.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/case2.png" alt="Successful case 2">
+          <figcaption>Successful case 2: tracing a robot traffic police deployment location.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/case3.png" alt="Failed case">
+          <figcaption>Failure case: noisy retrieval feedback propagates into the final answer.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="citation" class="section narrow">
+      <h2>Citation</h2>
+      <pre><code>@article{gao2026videosearcher,
+  title   = {VideoSearcher: Empowering Video Deep Research with Multi-Tool Agentic Reasoning via Reinforcement Learning},
+  author  = {Gao, Zhenkun and Bao, Yicheng and Peng, Jinlong and Li, Xueheng and Huang, Suyuan and Liu, Bangwei and Li, Kunquan and Gan, Zhenye and Hu, Tao and Xie, Chengjun and He, Xuanhua and Zhang, Zhizhong and Tan, Xin and Wang, Chengjie and Xie, Yuan},
+  journal = {Technical Report},
+  year    = {2026}
+}</code></pre>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>VideoSearcher project page. Built as a static research website.</p>
+  </footer>
+</body>
+</html>
