@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="VideoSearcher project page">
+  <meta name="description" content="VideoSearcher: Empowering Video Deep Research with Multi-Tool Agentic Reasoning via Reinforcement Learning. Accepted to EMNLP 2026 Main Conference.">
   <title>VideoSearcher</title>
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -14,6 +14,7 @@
     </a>
     <nav class="nav" aria-label="Page sections">
       <a href="#abstract">Abstract</a>
+      <a href="#demo">Demo</a>
       <a href="#method">Method</a>
       <a href="#results">Results</a>
       <a href="#cases">Cases</a>
@@ -23,7 +24,7 @@
 
   <main id="top">
     <section class="hero">
-      <p class="venue">Technical Report</p>
+      <p class="venue">EMNLP 2026 &middot; Main Conference</p>
       <h1>VideoSearcher: Empowering Video Deep Research with Multi-Tool Agentic Reasoning via Reinforcement Learning</h1>
 
       <div class="authors">
@@ -33,19 +34,20 @@
         </p>
         <p>
           Bangwei Liu<sup>1</sup>, Kunquan Li<sup>5</sup>, Zhenye Gan<sup>2</sup>, Tao Hu<sup>3</sup>,
-          Chengjun Xie<sup>3</sup>, Xuanhua He<sup>&#9993;6</sup>
+          Chengjun Xie<sup>3</sup>, Mingqian Yang<sup>1</sup>
         </p>
         <p>
-          Zhizhong Zhang<sup>1</sup>, Xin Tan<sup>1</sup>, Chengjie Wang<sup>2</sup>, Yuan Xie<sup>&#9993;1</sup>
+          Xuanhua He<sup>&#9993;6</sup>, Zhizhong Zhang<sup>1</sup>, Xin Tan<sup>1</sup>,
+          Chengjie Wang<sup>2</sup>, Yuan Xie<sup>&#9993;1</sup>
         </p>
       </div>
 
       <div class="notes">
-        <p><sup>*</sup> Equal Contribution, <sup>&dagger;</sup> Project Lead, &#9993; Corresponding Author</p>
+        <p><sup>*</sup> Equal Contribution, <sup>&dagger;</sup> Project Leader, &#9993; Corresponding Author</p>
         <p>
           <sup>1</sup>East China Normal University,
           <sup>2</sup>Tencent Youtu Lab,
-          <sup>3</sup>University of Science and Technology of China,
+          <sup>3</sup>HFIPS, Chinese Academy of Sciences,
           <sup>4</sup>Wuhan University,
           <sup>5</sup>Xiamen University,
           <sup>6</sup>The Hong Kong University of Science and Technology
@@ -53,10 +55,12 @@
       </div>
 
       <div class="actions">
-        <a class="button primary" href="assets/VideoSearcher.pdf">Paper</a>
+        <a class="button primary" href="https://arxiv.org/abs/2607.02927" target="_blank" rel="noopener">arXiv</a>
+        <a class="button" href="assets/VideoSearcher.pdf">Paper (PDF)</a>
+        <a class="button" href="https://github.com/Stephen-gzk/VideoSearcher" target="_blank" rel="noopener">Code</a>
+        <a class="button" href="https://huggingface.co/Stephengzk/VideoSearcher-8B" target="_blank" rel="noopener">Model</a>
+        <a class="button" href="https://huggingface.co/datasets/Stephengzk/VideoSearcher-Data" target="_blank" rel="noopener">Data</a>
         <a class="button" href="#citation">BibTeX</a>
-        <a class="button disabled" href="#" aria-disabled="true">Code Coming Soon</a>
-        <a class="button disabled" href="#" aria-disabled="true">Dataset Coming Soon</a>
       </div>
     </section>
 
@@ -68,6 +72,21 @@
         VideoSearcher studies Video Deep Research, where an agent must localize visual evidence in videos,
         invoke external search tools, and synthesize answers through a single coherent reasoning trajectory.
       </p>
+    </section>
+
+    <section id="demo" class="section">
+      <h2>Demo</h2>
+      <p class="section-intro">
+        A full VideoSearcher rollout: the agent localizes key frames in the video, zooms into the visual clue,
+        launches image and web search, and integrates the retrieved evidence into a final answer.
+      </p>
+      <figure class="figure wide">
+        <video controls playsinline preload="metadata" poster="assets/teaser.png">
+          <source src="assets/demo.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+          <a href="assets/demo.mp4">Download the demo video</a>.
+        </video>
+      </figure>
     </section>
 
     <section id="abstract" class="section narrow">
@@ -114,6 +133,10 @@
 
     <section id="results" class="section">
       <h2>Experiment Results</h2>
+      <p class="section-intro">
+        VideoSearcher-8B reaches an average score of 57.66% across 8 search-oriented benchmarks,
+        outperforming the Qwen3-VL-8B agentic baseline by 15.71% on average.
+      </p>
       <figure class="figure">
         <img src="assets/figure1.png" alt="Search-oriented benchmark results">
         <figcaption>Search-oriented benchmark comparison under direct-answer and agentic workflows.</figcaption>
@@ -154,11 +177,13 @@
 
     <section id="citation" class="section narrow">
       <h2>Citation</h2>
-      <pre><code>@article{gao2026videosearcher,
-  title   = {VideoSearcher: Empowering Video Deep Research with Multi-Tool Agentic Reasoning via Reinforcement Learning},
-  author  = {Gao, Zhenkun and Bao, Yicheng and Peng, Jinlong and Li, Xueheng and Huang, Suyuan and Liu, Bangwei and Li, Kunquan and Gan, Zhenye and Hu, Tao and Xie, Chengjun and He, Xuanhua and Zhang, Zhizhong and Tan, Xin and Wang, Chengjie and Xie, Yuan},
-  journal = {Technical Report},
-  year    = {2026}
+      <pre><code>@inproceedings{gao2026videosearcher,
+  title     = {VideoSearcher: Empowering Video Deep Research with Multi-Tool Agentic Reasoning via Reinforcement Learning},
+  author    = {Gao, Zhenkun and Bao, Yicheng and Peng, Jinlong and Li, Xueheng and Huang, Suyuan and Liu, Bangwei and Li, Kunquan and Gan, Zhenye and Hu, Tao and Xie, Chengjun and Yang, Mingqian and He, Xuanhua and Zhang, Zhizhong and Tan, Xin and Wang, Chengjie and Xie, Yuan},
+  booktitle = {Proceedings of the 2026 Conference on Empirical Methods in Natural Language Processing (EMNLP)},
+  year      = {2026},
+  eprint    = {2607.02927},
+  archivePrefix = {arXiv}
 }</code></pre>
     </section>
   </main>
