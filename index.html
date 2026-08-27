@@ -137,20 +137,22 @@
         VideoSearcher-8B reaches an average score of 57.66% across 8 search-oriented benchmarks,
         outperforming the Qwen3-VL-8B agentic baseline by 15.71% on average.
       </p>
-      <figure class="figure">
-        <img src="assets/figure1.png" alt="Search-oriented benchmark results">
-        <figcaption>Search-oriented benchmark comparison under direct-answer and agentic workflows.</figcaption>
+      <figure class="figure wide">
+        <img src="assets/table1-search.png" alt="Table 1: performance on search-oriented benchmarks">
+        <figcaption><strong>Table 1.</strong> Performance on search-oriented benchmarks under Direct Answer and Agentic Model workflows. Zero-shot denotes tool-augmented inference without task-specific training.</figcaption>
       </figure>
-      <div class="figure-row">
-        <figure class="figure compact">
-          <img src="assets/figure2.png" alt="General video understanding results">
-          <figcaption>General video understanding benchmark results.</figcaption>
-        </figure>
-        <figure class="figure compact">
-          <img src="assets/tool-usage.png" alt="Tool invocation statistics">
-          <figcaption>Tool usage patterns across video and image search-oriented benchmarks.</figcaption>
-        </figure>
-      </div>
+      <figure class="figure">
+        <img src="assets/table2-video.png" alt="Table 2: performance on general video understanding benchmarks">
+        <figcaption><strong>Table 2.</strong> Performance on general video understanding benchmarks.</figcaption>
+      </figure>
+      <figure class="figure">
+        <img src="assets/table3-rl.png" alt="Table 3: algorithmic ablation of RL">
+        <figcaption><strong>Table 3.</strong> Algorithmic ablation of RL. GRPO and GSPO are single-branch variants; BiSPO is the proposed bi-branch variant, with BiSPO Full using the correctness-gated bell-shaped tool reward.</figcaption>
+      </figure>
+      <figure class="figure">
+        <img src="assets/table4-tool.png" alt="Table 4: tool ablation study">
+        <figcaption><strong>Table 4.</strong> Tool ablation study. Locate denotes the video localization tools, Search the external web retrieval tools.</figcaption>
+      </figure>
     </section>
 
     <section id="cases" class="section">
